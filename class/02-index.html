@@ -16,14 +16,20 @@
     </ul>
 </body>
 <script>
-    let students = ["A", "B", "C", "D", "E"];
-    let count = 0;
-    let ul = document.getElementsByTagName("ul")[0];
-    while (count < students.length) {
-        console.log("<li>" + students[count] + "</li>")
-        ul.innerHTML += "<li>" + students[count] + "</li>";
-        count++;
-    }
+    // let students = ["A", "B", "C", "D", "E"];
+    // let count = 0;
+    // let ul = document.getElementsByTagName("ul")[0];
+    // while (count < students.length) {
+    //     console.log("<li>" + students[count] + "</li>")
+    //     ul.innerHTML += "<li>" + students[count] + "</li>";
+    //     count++;
+    // }
+
+    // let tax = 2.5
+
+    // let food = (180 + 120 + 123) * tax
+    // let cloth = (23 + 22 + 123) * tax
+    // let game = (180 + 54 + 234) * tax
 
     // let count = 1
     // // document.getElementById("result").innerText = count
@@ -31,30 +37,36 @@
     // console.log(h1)
     // h1[0].innerText = count
 
-
-    // let anyType = "PT";
-    // let output;
-    // switch (anyType) {
-    //     case "PT":
-    //         output = "Painting";
-    //         break;
-    //     case "SC":
-    //         output = "Sculpture";
-    //         break;
-    //     default:
-    //         output = "Other"
-    // }
+    let anyType = "SC";
+    let output;
+    switch (anyType) {
+        case "PT":
+            output = "Painting";
+            console.log(output)
+        // break;
+        case "SC":
+            output = "Sculpture";
+            console.log(output)
+        // break;
+        case "AL":
+            output = "AL";
+            console.log(output)
+        // break;
+        default:
+            output = "Other"
+            console.log(output)
+    }
     // console.log(output)
 
-    // var x;
-    // var y;
+    // let x;
+    // let y;
     // x = (y == 4) ? "y is 4" : "y is not 4";
     // console.log(x)
 
-    // var actors = ["Will Smith", "Tom Hanks", "Brad Pitt", "Samuel L. Jackson", "Denzel Washington"]
+    // let actors = ["Will Smith", "Tom Hanks", "Brad Pitt", "Samuel L. Jackson", "Denzel Washington"]
     // console.log(actors)
 
-    // var count = 0;
+    // let count = 0;
     // while (count < 10) {
     //     console.log(count)
     //     count++;
@@ -71,8 +83,8 @@
     //     console.log(++count);
     // } while (count < 10)
 
-    // var actors = ["Will Smith", "Tom Hanks", "Brad Pitt", "Samuel L. Jackson", "Denzel Washington"]
-    // var count = 0;
+    // let actors = ["Will Smith", "Tom Hanks", "Brad Pitt", "Samuel L. Jackson", "Denzel Washington"]
+    // let count = 0;
     // while (count < actors.length) {
     //     console.log(actors[count])
     //     count++;
