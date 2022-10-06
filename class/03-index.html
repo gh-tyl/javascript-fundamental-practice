@@ -16,9 +16,9 @@
     <ul>
 
     </ul>
-    <ul>
+    <ol>
 
-    </ul>
+    </ol>
 </body>
 <script>
     function sayHi() {
@@ -134,32 +134,25 @@
         lastName: "Inari",
         country: "Japan",
         singers: ["aaa", "bbb", "ccc", "ddd", "eee"],
-        showDetails: function (li) {
+        showDetails: function () {
+            let output = "";
             for (singer in this.singers) {
-                li.innerHTML += `<li> ${showDetails.showDetails()}}</li>`
+                output += `<li> ${this.singers[singer]}</li>`
             }
-            return this.singers
+            return output
         }
     }
 
-    // return `${this.firstName} from ${this.country} born on ${this.byear}`;
-
-    let h2 = document.getElementsByTagName("h2")
-    h2[0].innerHTML = `${student.firstName} details`
-    // h2[1].innerHTML = student.showDetails()
+    let h2 = document.getElementsByTagName("h2")[0]
+    h2.innerHTML = `${student.firstName} details`
 
     let ul = document.getElementsByTagName("ul")[0]
+    let ol = document.getElementsByTagName("ol")[0]
+
     for (let property in student) {
-        if (typeof student[property] == 'function') {
-            ul.innerHTML += `<ul></ul>`
-            let li = getElementsByTagName("li")[-1]
-            li.innerHTML += `${showDetails.showDetails(li)}}`
-        } else {
-            ul.innerHTML += `<li> ${property} : ${student[property]} : ${typeof student[property]}</li>`
-        }
+        (typeof student[property] != "function") ? ul.innerHTML += `<li> ${student[property]} </li>` : ol.innerHTML = student[property]();
     }
-
-
+    // ol.innerHTML = student.showDetails();
 </script>
 
 </html>
