@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td,
+        th {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <input placeholder="inputFullName">
+    <input placeholder="inputChildrenNumber">
+    <input placeholder="inputExperienceYear">
+    <input placeholder="inputBaseSalary">
+    <button>Add</button>
+    <table>
+        <thead>
+            <tr>
+                <th>EmployeeID</th>
+                <th>Firtst Name</th>
+                <th>Last Name</th>
+                <th># of children</th>
+                <th># of working experience</th>
+                <th>Base Salary</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6" align="right">Total</td>
+                <td colspan="2"></td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+<script>
+    let employers = new Map()
+    const employer = function (fullName, childrenNumber, experienceYear, baseSalary) {
+        this.fullName = fullName
+        this.childrenNumber = childrenNumber
+        this.experienceYear = experienceYear
+        this.baseSalary = baseSalary
+    }
+
+
+</script>
+
+</html>
