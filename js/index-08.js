@@ -18,3 +18,24 @@ let styles = {
 };
 // $(h1).css('background-color', 'pink');
 $(h1).css(styles);
+
+// prepare input element
+var input = document.createElement('input');
+body.appendChild(input);
+// prepare button element
+var button = document.createElement('button');
+button.innerText = 'Click Me!';
+body.appendChild(button);
+
+var input = $('input');
+$(input).attr('type', 'password');
+var button = $('button');
+$(button).attr('class', 'btn btn-primary');
+$(button).on('click', function () {
+    if ($(input).attr('type') == 'password') {
+        $(input).attr('type', 'text');
+    } else {
+        $(input).attr('type', 'password');
+    }
+}
+);
