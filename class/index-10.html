@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        .children {
+            background-color: salmon;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: .4s;
+            margin-top: 5px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .children:hover {
+            background-color: green;
+        }
+
+        .selected {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button">ADD BOX</button>
+    <button type="button" disabled>REMOVE BOX</button>
+    <button type="button" disabled>UP</button>
+    <button type="button" disabled>DOWN</button>
+    <div id="parent">
+
+    </div>
+</body>
+<script>
+    let selected = null;
+    let counter = 0;
+    $(document).keydown(function (e) {
+        console.log(e);
+    })
+    $($("button")[0]).on("click", function () {
+        let box = $("<div></div>");
+        counter++;
+        box.addClass("children");
+        box.text(counter);
+        box.click(function () {
+            if (this == selected) {
+                $(this).removeClass("selected");
+                selected = null;
+                setDisabled();
+            } else {
+                $(".children").removeClass("selected");
+                $(this).toggleClass("selected");
+                selected = this;
+                setDisabled();
+            }
+        });
+        $("#parent").append(box);
+    })
+    $($("button")[1]).on("click", function () {
+        $(selected).remove();
+        selected = null;
+        $(this).attr("disabled", true);
+        setDisabled();
+    })
+    // up
+    $($("button")[2]).on("click", function () {
+        // if no prev, then move to last
+        if ($(selected).prev().length == 0) {
+            $("#parent").append($(selected));
+        } else {
+            $(selected).prev().before($(selected));
+        }
+    })
+    // down
+    $($("button")[3]).on("click", function () {
+        // if no next, then move to first
+        if ($(selected).next().length == 0) {
+            $("#parent").prepend($(selected));
+        } else {
+            $(selected).next().after($(selected));
+        }
+    })
+    // set disabled function
+    function setDisabled() {
+        let dusabledButtonsLength = 4;
+        if (selected == null) {
+            for (let i = 1; i < dusabledButtonsLength; i++) {
+                $($("button")[i]).attr("disabled", true);
+            }
+        } else {
+            for (let i = 1; i < dusabledButtonsLength; i++) {
+                $($("button")[i]).attr("disabled", false);
+            }
+        }
+    }
+</script>
+
+</html>
