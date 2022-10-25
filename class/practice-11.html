@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        div {
+            display: flex;
+            flex-direction: column;
+            row-gap: 1vh;
+        }
+
+        table {
+            width: 80%;
+        }
+
+        table,
+        th,
+        td {
+            padding: 1%;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <form>
+            <input type="text" ng-model="fname">
+            <input type="text" ng-model="lname">
+            <input type="number" ng-model="grade">
+            <input type="text" ng-model="password">
+            <button type="button" ng-click="addStudent()">Add Student</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="student in students">
+                    <td>{{student.fname}}</td>
+                    <td>{{student.lname}}</td>
+                    <td>{{student.grade}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">Maximum</td>
+                    <td>{{max}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Minimum</td>
+                    <td>{{min}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Average</td>
+                    <td style="background-color: {{bgColor}};">{{average}}</td>
+                </tr>
+            </tfoot>
+        </table>
+        <form>
+            <input type="{{show}}" />
+            <button ng-click="showPassword()">Show password</button>
+        </form>
+        <form>
+            <input type="color" ng-model="bgColor">
+        </form>
+    </div>
+</body>
+<script src="./js/practice-11.js"></script>
+
+</html>
