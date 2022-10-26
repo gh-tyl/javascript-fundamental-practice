@@ -18,7 +18,7 @@ app.controller('tableCtrl', function ($scope) {
     ];
 });
 
-app.controller('addName', function ($scope) {
+app.controller('addNameCtrl', function ($scope) {
     $scope.names = ["Emil", "Tobias", "Linus"];
     console.log($scope.names);
     $scope.addName = function () {

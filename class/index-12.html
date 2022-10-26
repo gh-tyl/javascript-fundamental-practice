@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="loginApp" ng-controller="userCtrl">
+        <div class="loginForm">
+            <input id="email" type="email" placeholder="write your email" ng-model="email" />
+            <input id="password" type="text" placeholder="write your password" ng-model="password" />
+            <button type="button" ng-click="login()">Login</button>
+        </div>
+        <div>
+            <h1>{{output}}</h1>
+        </div>
+        <div ng-controller="listCtrl">
+            <input id="filter" type="text" placeholder="filter" bg-model="filter" />
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Telephone</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        ng-repeat="user in users | filter: {'firstName': fname, 'lastName': lname} | orderBy: 'firstName'">
+                        <td class="firstName">{{user.firstName}}</td>
+                        <td class="lastName">{{user.lastName}}</td>
+                        <td class="telephone">{{user.telephone}}</td>
+                        <td class="address">{{user.address}}</td>
+                    </tr>
+                    <!-- <tr ng-repeat="user in users">
+                        <td class="firstName">{{user.firstName}}</td>
+                        <td class="lastName">{{user.lastName}}</td>
+                        <td class="telephone">{{user.telephone}}</td>
+                        <td class="address">{{user.address}}</td>
+                    </tr> -->
+            </table>
+        </div>
+        <div ng-controller="tableScope">
+
+        </div>
+    </div>
+    <!-- <div>
+            <input id="email" type="email" placeholder="write your email" />
+            <input id="password" type="text" placeholder="write your password" />
+            <button type="button">Login</button>
+        </div>
+        <div>
+            <h1></h1>
+        </div> -->
+</body>
+<script src="./js/index-12.js"></script>
+
+</html>

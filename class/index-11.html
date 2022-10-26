@@ -15,11 +15,11 @@
             <input type="number" ng-model="firstNum" />
             <input type="number" ng-model="secondNum" />
         </div>
-        <div ng-controller="addName">
+        <div ng-controller="addNameCtrl">
             <h1>Sum {{firstNum + secondNum}}</h1>
             <h1>Sub {{firstNum - secondNum}}</h1>
             <h1>Mul {{firstNum * secondNum}}</h1>
-            <input type="text" ng-model="stName">
+            <input type="text" ng-model="newName">
             <button type="button" nb-click="addName">Add Name</button>
         </div>
         <div ng-controller="listCtrl">

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- import jqwery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="myApp">
+        <div ng-controller="inputCtrl">
+            <input id="filterId" type="text" ng-model="filterId" />
+            <input id="filterItemName" type="text" ng-model="filterItemName" />
+            <input id="filterPrice" type="text" ng-model="filterPrice" />
+            <input id="filterAmount" type="text" ng-model="filterAmount" />
+        </div>
+        <div ng-controller="tableCtrl">
+            <button type="button" ng-click="loadData()">Load data</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>item_name</th>
+                        <th>price</th>
+                        <th>amount</th>
+                    </tr>
+                </thead>
+                <!-- <tbody ng-repeat="product in products | filter: {'id': filterId}"> -->
+                <tbody
+                    ng-repeat="product in products | filter: {'id': filterId, 'item_name': filterItemName, 'price': filterPrice, 'amount': filterAmount}">
+                    <tr>
+                        <td>{{product.id}}</td>
+                        <td>{{product.item_name}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.amount}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script src="./js/practice-12.js"></script>
+
+</html>
